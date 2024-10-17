@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+:root{
+    --veryDarkGrayishBlue: hsl(217, 19%, 35%);
+    --desaturedDarkBlue: hsl(214, 17%, 51%);
+    --grayishBlue: hsl(212, 23%, 69%);
+    --lightGrayishBlue: hsl(210, 46%, 95%);
+
+    --fs-sm: clamp(0.54rem, 0vi + 0.54rem, 0.54rem);
+    --fs-base: clamp(1rem, 0.09vi + 0.97rem, 1.08rem);
+    --fs-md: clamp(1.85rem, 0.37vi + 1.74rem, 2.15rem);
+    --fs-lg: clamp(3.42rem, 1.08vi + 3.11rem, 4.31rem);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 13px;
+    font-family: 'Manrope', sans-serif;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--lightGrayishBlue);
+    min-height: 100vh;
+    z-index: 0;
+}
+
+.shadow{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 1);
+    opacity: 0;
+    transition: opacity .5s ease;
+    -webkit-transition: opacity .5s ease;
+    -moz-transition: opacity .5s ease;
+    -ms-transition: opacity .5s ease;
+    -o-transition: opacity .5s ease;
+}
+
+main .card:hover ~ .shadow{
+    opacity: .4;
+}
+
+.cards{
+    background-color: var(--lightGrayishBlue);
+    display: flex;
+    grid-template-rows: 1fr;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.card{
+    z-index: 2;
+    border-radius: .8rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    background-color: white;
+    width: clamp(300px, 100%, 800px);
+    overflow: hidden;
+    -webkit-border-radius: .8rem;
+    -moz-border-radius: .8rem;
+    -ms-border-radius: .8rem;
+    -o-border-radius: .8rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.banner{
+    width: 100%;
+    overflow: hidden;
+    height: 215px;
+}
+
+.banner img{
+    width: 100%;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2.5rem 2.5rem 1.3rem 2.5rem;
+    position: relative;
+}
+
+.content .header h2{
+    font-weight: 700;
+    line-height: 1.4;
+    font-size: calc(var(--fs-md)*.7);
+    color: var(--veryDarkGrayishBlue);
+}
+
+.content .text p{
+    font-weight: 500;
+    font-size: calc(var(--fs-base)*1.01);
+    color: var(--desaturedDarkBlue);
+    line-height: 1.5;
+}
+
+.footer{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer .about-me{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.footer .about-me span{
+    width: 50px;
+    height: 50px;
+}
+
+.footer .about-me img{
+    width: 100%;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.footer .about-me .names p:first-child{
+    font-weight: 700;
+    font-size: calc(var(--fs-base)*1.1);
+    color: var(--veryDarkGrayishBlue);
+    margin-bottom: .1rem;
+}
+
+.footer .about-me .names p:last-child{
+    font-weight: 500;
+    font-size: calc(var(--fs-base)*1.1);
+    color: var(--desaturedDarkBlue);
+    opacity: 90%;
+}
+
+.footer .btn-share{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.footer .btn-share input[type="checkbox"]{
+    display: none;
+}
+
+.footer .btn-share label{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.2rem;
+    background-image: url('images/icon-share.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: var(--lightGrayishBlue);
+    border-radius: 100rem;
+    -webkit-border-radius: 100rem;
+    -moz-border-radius: 100rem;
+    -ms-border-radius: 100rem;
+    -o-border-radius: 100rem;
+    z-index: 10;
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+}
+
+.share-content{
+    margin: 0 -2.5rem;
+    padding: 2.5rem;
+    width: 100%;
+    height: 80px;
+    bottom: -80px;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    position: absolute;
+    background-color: var(--veryDarkGrayishBlue);
+    transition: bottom .3s ease;
+    -webkit-transition: bottom .3s ease;
+    -moz-transition: bottom .3s ease;
+    -ms-transition: bottom .3s ease;
+    -o-transition: bottom .3s ease;
+}
+
+.share-content span{
+    font-weight: 500;
+    font-size: calc(var(--fs-base)*1);
+    color: var(--lightGrayishBlue);
+    letter-spacing: 0.5rem;
+    text-transform: uppercase;
+    opacity: 60%;
+}
+
+.share-content .social-media{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.share-content .social-media img{
+    cursor: pointer;
+}
+
+
+@media (min-width: 652px){
+
+    .content {
+        position: static;
+    }
+
+    .banner{
+        height: 100%;
+    }
+    .banner img{
+        height: 100%;
+    }
+
+    .share-content{
+        height: fit-content;
+        visibility: hidden;
+        position: absolute;
+        opacity: 0;
+        width: auto;
+        border-radius: 1rem;
+        padding: 1.2rem 2.7rem;
+        margin: 0;
+        left: 50%;
+        top: calc(50% + 1.5dvi);
+        -webkit-border-radius: 1rem;
+        -moz-border-radius: 1rem;
+        -ms-border-radius: 1rem;
+        -o-border-radius: 1rem;
+        transition: visibility 0s .5s, opacity .5s ease;
+        -webkit-transition: visibility 0s .5s, opacity .5s ease;
+        -moz-transition: visibility 0s .5s, opacity .5s ease;
+        -ms-transition: visibility 0s .5s, opacity .5s ease;
+        -o-transition: visibility 0s .5s, opacity .5s ease;
+        transform: translateX(92.8%);
+        -webkit-transform: translateX(92.8%);
+        -moz-transform: translateX(92.8%);
+        -ms-transform: translateX(92.8%);
+        -o-transform: translateX(92.8%);
+}   
+
+    .share-content::after{
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-top: 15px solid var(--veryDarkGrayishBlue);
+        bottom: -14px;
+        left: calc(50% - 14px);
+    }
+
+
+
+    .visible-share-content{
+        opacity: 1;
+        visibility: visible;
+        transition: opacity .5s ease;
+        -webkit-transition: opacity .5s ease;
+        -moz-transition: opacity .5s ease;
+        -ms-transition: opacity .5s ease;
+        -o-transition: opacity .5s ease;
+}
+}
