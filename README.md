@@ -32,7 +32,7 @@ La particularidad es la manera en como se visualiza este contenido, en una vista
 
 ### Links
 
-- Sitio: [-](#)
+- Sitio: [Vista previa artículo](https://f-avalos.github.io/Article-Preview-Component/)
 
 ## Proceso
 
